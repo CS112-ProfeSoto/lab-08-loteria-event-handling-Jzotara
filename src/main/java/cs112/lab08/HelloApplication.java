@@ -1,7 +1,6 @@
 package cs112.lab08;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 //import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -16,11 +15,8 @@ import javafx.geometry.Pos;
 public class HelloApplication extends Application {
 
     //CONSTANTS
-    private Label titleLabel; //title label used to display welcome message
     private ImageView cardImageView; // used to display png
     private Label messageLabel; //Displays message to prompt button interaction, as well as updating to show current card name
-    private Button drawCardButton; //actual button to draw random card
-    private ProgressBar gameProgressBar; //progress bar to display progress(unused)
 
     //array of LoteriaCards to use for game:
     private static final LoteriaCard[] LOTERIA_CARDS = {
@@ -35,7 +31,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         //removed FXML code, fill this in with components, scene, stage, etc.
         //title
-        titleLabel = new Label("Welcome to EChALE STEM Loteria!");
+        Label titleLabel = new Label("Welcome to EChALE STEM Loteria!");
         LoteriaCard defaultCard = new LoteriaCard();
 
         //Image View
@@ -49,10 +45,10 @@ public class HelloApplication extends Application {
         messageLabel = new Label("Click the button to draw random a card");
 
         //Button to draw card
-        drawCardButton = new Button("Draw Random Card");
+        Button drawCardButton = new Button("Draw Random Card");
 
         //Progress Bar
-        gameProgressBar = new ProgressBar(0);
+        ProgressBar gameProgressBar = new ProgressBar(0);
 
         //vbox layout
         VBox layout = new VBox(10);
@@ -61,7 +57,7 @@ public class HelloApplication extends Application {
         layout.getChildren().addAll(titleLabel, cardImageView, messageLabel, drawCardButton, gameProgressBar);
 
         //Button function
-        drawCardButton.setOnAction(new javafx.event.EventHandler<>() {
+        drawCardButton.setOnAction(new javafx.event.EventHandler<javafx.event.ActionEvent>() {
             @Override
             public void handle(javafx.event.ActionEvent event) { //anonymous inner class used as directed
                 //picks a random card
