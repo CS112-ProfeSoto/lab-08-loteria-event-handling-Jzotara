@@ -2,7 +2,7 @@ package cs112.lab08;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
+//import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.layout.VBox;
@@ -61,7 +61,7 @@ public class HelloApplication extends Application {
         layout.getChildren().addAll(titleLabel, cardImageView, messageLabel, drawCardButton, gameProgressBar);
 
         //Button function
-        drawCardButton.setOnAction(new javafx.event.EventHandler<ActionEvent>() {
+        drawCardButton.setOnAction(new javafx.event.EventHandler<>() {
             @Override
             public void handle(javafx.event.ActionEvent event) { //anonymous inner class used as directed
                 //picks a random card
